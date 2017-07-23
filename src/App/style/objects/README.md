@@ -1,0 +1,7 @@
+- JS
+- OOCSS (object oriented css).
+- Design patterns.
+- Layout.
+- No cosmetics.
+- Agnostically named (e.g. list, block, media).
+- Se deja aqui por motivos de aclaración pero los componentes genericos estarían ubicados en otra parte de la estrcutura de directorios.

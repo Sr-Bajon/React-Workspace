@@ -1,0 +1,7 @@
+- JS y CSS
+- HTML Elements.
+- H1-H6, basic links, lists, etc.
+- More opinionated / “stylistic” than `generic`.
+- Last layer we see type selectors (e.g. a {}, blockquote {}).
+- La diferencia entre 'elements' y 'generic' es que elements depende mas de la opinion de cada uno.
+- Generic sería algo que puedes pasar de proyecto en proyecto y elements está mas pegado al proyecto concreto.

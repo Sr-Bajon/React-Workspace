@@ -1,0 +1,14 @@
+- JS
+- pieces of UI
+- Es lo único único en cada proyecto
+- Dividir en bloques fundamentales
+    - ATOMS
+        - Button o Input
+    - MOLECULES
+        - Button e Input juntos para formar un cuadro de busqueda
+    - ORGANISMS
+        - El cuadro de busqueda incluido en una barra de navegación
+    - TEMPLATES
+        - Multiples organismos
+    - PAGES
+        - Multiples templates

@@ -1,0 +1,4 @@
+- CSS
+- Ground zero styles
+- Low-specificity, far-reaching, app-wide
+- Resets, Normalize.css, etc.
