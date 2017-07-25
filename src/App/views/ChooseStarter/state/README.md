@@ -1,0 +1,1 @@
+Si el manejo del estado es unico a una vista en particular, el codigo irán en esta carpeta.

@@ -1,0 +1,1 @@
+Componentes reusables que se usan en varias vistas de la app.
