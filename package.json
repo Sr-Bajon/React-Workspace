@@ -1,0 +1,27 @@
+{
+  "name": "react-workspace",
+  "version": "0.0.0",
+  "description": "workspace with automations ready for react app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sr-Bajon/React-Workspace.git"
+  },
+  "keywords": [
+    "react",
+    "workspace"
+  ],
+  "author": "Ismael Rodriguez Gonzalez - ismael.rodriguez@atmira.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sr-Bajon/React-Workspace/issues"
+  },
+  "homepage": "https://github.com/Sr-Bajon/React-Workspace#readme",
+  "dependencies": {
+    "react": "15.6.x",
+    "react-dom": "15.6.x"
+  }
+}
