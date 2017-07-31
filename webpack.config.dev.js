@@ -19,6 +19,9 @@ module.exports = {
         options: {
           babelrc       : false,
           presets       : ['react'],
+          // babel-plugin-transform-class-properties
+          // This plugin transforms es2015 static class properties as well as
+          // properties declared with the es2016 property initializer syntax.
           plugins       : [require('babel-plugin-transform-class-properties')],
           cacheDirectory: true,
         },
@@ -27,3 +30,10 @@ module.exports = {
   }
 
 };
+
+
+/*
+
+https://blog.madewithenvy.com/webpack-2-postcss-cssnext-fdcd2fd7d0bd
+
+ */
