@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config webpack.config.dev.js --open",
-    "build-dev": "webpack --config webpack.config.dev.js",
-    "watch": "webpack --config webpack.config.dev.js --watch"
+    "webpack-dev": "webpack-dev-server --config webpack.config.dev.js --open && exit 1",
+    "build-dev": "webpack --config webpack.config.dev.js && exit 1",
+    "watch": "webpack --config webpack.config.dev.js --watch && exit 1",
+    "server": "node ./server/server.js && exit 1",
+    "start": "concurrently -k \"npm run webpack-dev\" \"npm run server\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -23,7 +25,9 @@
     "url": "https://github.com/Sr-Bajon/React-Workspace/issues"
   },
   "homepage": "https://github.com/Sr-Bajon/React-Workspace#readme",
-  "dependencies": {},
+  "dependencies": {
+    "concurrently": "^3.5.0"
+  },
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",

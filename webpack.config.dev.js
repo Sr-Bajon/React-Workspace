@@ -11,11 +11,11 @@ module.exports = {
   },
   devServer: {
     contentBase: './dist',
-    port: 8080,
-    proxy: {
+    port       : 8080,
+    proxy      : {
       "/api": {
-        target: "http://localhost:3000",
-        pathRewrite: {"^/api" : ""}
+        target     : "http://localhost:3000",
+        pathRewrite: {"^/api": ""}
       }
     }
   },
@@ -39,7 +39,10 @@ module.exports = {
           use: [
             {
               loader : 'css-loader',
-              options: {importLoaders: 1},
+              options: {
+                importLoaders: 1
+              },
+
             },
             'postcss-loader',
           ],

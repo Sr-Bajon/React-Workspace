@@ -8,17 +8,33 @@ let root = document.createElement('div');
 root.setAttribute('id', 'root');
 document.body.appendChild(root);
 
-fetch('/api/hola')
-  .then(fetchUtil.checkStatus)
-  .then(fetchUtil.parseJSON)
-  .then((data) => {
-    ReactDOM.render(
+class HolaComponent extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      saludo: `Parece que tienes el servidor local apagado, mira la 
+        documentación si quieres tener un servidor local para mocks y otras 
+        tareas`
+    };
+  }
+
+  componentDidMount() {
+    fetch('/api/hola')
+      .then(fetchUtil.checkStatus)
+      .then(fetchUtil.parseJSON)
+      .then((data) => {
+        this.setState({saludo: data.saludo})
+      });
+  }
+
+  render() {
+    return (
       <div>
         <p>HOLA ESTIMADO USUARIO DE REACT WORKSPACE</p>
-        <p>{data.saludo}</p>
-      </div>,
-      document.getElementById('root'));
-  })
-  .catch((err) => {
-    throw(err)
-  });
+        <p>{this.state.saludo}</p>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<HolaComponent/>, document.getElementById('root'));
