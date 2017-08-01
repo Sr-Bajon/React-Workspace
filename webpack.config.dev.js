@@ -1,26 +1,33 @@
 const path              = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const paths = {
-  appSrc: 'src'
-};
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'cheap-module-source-map',
-  entry: ['./src/index.js'],
-  output : {
+  devtool  : 'cheap-module-source-map',
+  entry    : ['./src/index.js'],
+  output   : {
     filename: 'bundle.js',
     path    : path.resolve(__dirname, 'dist')
   },
-  module : {
+  devServer: {
+    contentBase: './dist',
+    port: 8080,
+    proxy: {
+      "/api": {
+        target: "http://localhost:3000",
+        pathRewrite: {"^/api" : ""}
+      }
+    }
+  },
+  module   : {
     rules: [
       {
-        test: /\.js$/,
+        test   : /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
+        use    : {
+          loader : 'babel-loader',
           options: {
-            presets: ['react'],
+            presets       : ['react'],
             plugins       : [require('babel-plugin-transform-class-properties')],
             cacheDirectory: true,
           }
@@ -37,25 +44,12 @@ module.exports = {
             'postcss-loader',
           ],
         }),
-      },
-      // {
-      //   test: /\.css$/,
-      //   use: [
-      //     'extract-loader',
-      //     'css-loader'
-      //   ]
-      // },
+      }
     ],
   },
-  plugins: [
+  plugins  : [
     new ExtractTextPlugin('[name].bundle.css'),
+    new HtmlWebpackPlugin()
   ],
 
 };
-
-
-/*
-
-https://blog.madewithenvy.com/webpack-2-postcss-cssnext-fdcd2fd7d0bd
-
- */
