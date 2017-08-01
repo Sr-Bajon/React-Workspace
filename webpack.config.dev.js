@@ -7,7 +7,7 @@ const paths = {
 
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: './src/index.js',
+  entry: ['./src/index.js'],
   output : {
     filename: 'bundle.js',
     path    : path.resolve(__dirname, 'dist')
@@ -25,19 +25,19 @@ module.exports = {
             cacheDirectory: true,
           }
         }
-      }
-      // {
-      //   test: /\.css$/,
-      //   use : ExtractTextPlugin.extract({
-      //     use: [
-      //       {
-      //         loader : 'css-loader',
-      //         options: {importLoaders: 1},
-      //       },
-      //       'postcss-loader',
-      //     ],
-      //   }),
-      // },
+      },
+      {
+        test: /\.css$/,
+        use : ExtractTextPlugin.extract({
+          use: [
+            {
+              loader : 'css-loader',
+              options: {importLoaders: 1},
+            },
+            'postcss-loader',
+          ],
+        }),
+      },
       // {
       //   test: /\.css$/,
       //   use: [
@@ -47,9 +47,9 @@ module.exports = {
       // },
     ],
   },
-  // plugins: [
-  //   new ExtractTextPlugin('[name].bundle.css'),
-  // ],
+  plugins: [
+    new ExtractTextPlugin('[name].bundle.css'),
+  ],
 
 };
 
