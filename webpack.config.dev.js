@@ -1,4 +1,5 @@
-const path = require('path');
+const path              = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const paths = {
   appSrc: 'src'
@@ -6,7 +7,7 @@ const paths = {
 
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry  : './src/index.js',
+  entry: './src/index.js',
   output : {
     filename: 'bundle.js',
     path    : path.resolve(__dirname, 'dist')
@@ -14,20 +15,41 @@ module.exports = {
   module : {
     rules: [
       {
-        test   : /\.js$/,
-        loader : require.resolve('babel-loader'),
-        options: {
-          babelrc       : false,
-          presets       : ['react'],
-          // babel-plugin-transform-class-properties
-          // This plugin transforms es2015 static class properties as well as
-          // properties declared with the es2016 property initializer syntax.
-          plugins       : [require('babel-plugin-transform-class-properties')],
-          cacheDirectory: true,
-        },
-      },
-    ]
-  }
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['react'],
+            plugins       : [require('babel-plugin-transform-class-properties')],
+            cacheDirectory: true,
+          }
+        }
+      }
+      // {
+      //   test: /\.css$/,
+      //   use : ExtractTextPlugin.extract({
+      //     use: [
+      //       {
+      //         loader : 'css-loader',
+      //         options: {importLoaders: 1},
+      //       },
+      //       'postcss-loader',
+      //     ],
+      //   }),
+      // },
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     'extract-loader',
+      //     'css-loader'
+      //   ]
+      // },
+    ],
+  },
+  // plugins: [
+  //   new ExtractTextPlugin('[name].bundle.css'),
+  // ],
 
 };
 
