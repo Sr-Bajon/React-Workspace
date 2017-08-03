@@ -9,7 +9,8 @@
     "build-dev": "webpack --config webpack.config.dev.js && exit 1",
     "watch": "webpack --config webpack.config.dev.js --watch && exit 1",
     "server": "node ./server/server.js && exit 1",
-    "start": "concurrently -k \"npm run webpack-dev\" \"npm run server\" && exit 1"
+    "start": "concurrently -k \"npm run webpack-dev\" \"npm run server\" && exit 1",
+    "check-js-style": "standard \"src/**/*.js\" --parser babel-eslint --fix --verbose | snazzy"
   },
   "repository": {
     "type": "git",
@@ -26,10 +27,12 @@
   },
   "homepage": "https://github.com/Sr-Bajon/React-Workspace#readme",
   "dependencies": {
-    "concurrently": "^3.5.0"
+    "prop-types": "^15.5.10"
   },
   "devDependencies": {
+    "concurrently": "^3.5.0",
     "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.0",
@@ -45,6 +48,9 @@
     "postcss-loader": "^2.0.6",
     "react": "15.6.x",
     "react-dom": "15.6.x",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2",
+    "standard-loader": "^6.0.1",
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.6.1"
   }

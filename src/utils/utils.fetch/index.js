@@ -1,15 +1,15 @@
-function checkStatus(response) {
+function checkStatus (response) {
   if (response.status >= 200 && response.status < 300) {
-    return response;
+    return response
   } else {
-    let error      = new Error(response.statusText);
-    error.response = response;
-    throw error;
+    let error = new Error(response.statusText)
+    error.response = response
+    throw error
   }
 }
 
-function parseJSON(response) {
-  return response.json();
+function parseJSON (response) {
+  return response.json()
 }
 
-export default {checkStatus, parseJSON};
+export default {checkStatus, parseJSON}
