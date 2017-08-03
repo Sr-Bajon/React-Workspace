@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './style/main.css'
 import fetchUtil from './utils/utils.fetch'
+import { StyleSheet, css } from 'aphrodite/no-important'
 
 let root = document.createElement('div')
 root.setAttribute('id', 'root')
@@ -32,11 +33,19 @@ class HolaComponent extends React.Component {
   render () {
     return (
       <div>
-        <p>HOLA ESTIMADO USUARIO DE REACT WORKSPACE</p>
+        <p className={css(styles.red)}>
+          HOLA ESTIMADO USUARIO DE REACT WORKSPACE
+        </p>
         <p>{this.state.saludo}</p>
       </div>
     )
   }
 }
 
-ReactDOM.render(<HolaComponent />, document.getElementById('root'))
+const styles = StyleSheet.create({
+  red: {
+    color: 'red'
+  }
+})
+
+ReactDOM.render(<HolaComponent/>, document.getElementById('root'))

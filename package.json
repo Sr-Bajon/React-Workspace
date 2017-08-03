@@ -10,7 +10,7 @@
     "watch": "webpack --config webpack.config.dev.js --watch && exit 1",
     "server": "node ./server/server.js && exit 1",
     "start": "concurrently -k \"npm run webpack-dev\" \"npm run server\" && exit 1",
-    "check-js-style": "standard \"src/**/*.js\" --parser babel-eslint --fix --verbose | snazzy"
+    "check-js": "standard \"src/**/*.js\" --parser babel-eslint --fix --verbose | snazzy"
   },
   "repository": {
     "type": "git",
@@ -30,13 +30,14 @@
     "prop-types": "^15.5.10"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0",
+    "aphrodite": "^1.2.3",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "concurrently": "^3.5.0",
     "css-loader": "^0.28.4",
     "extract-loader": "^1.0.0",
     "extract-text-webpack-plugin": "^3.0.0",

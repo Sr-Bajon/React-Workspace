@@ -11,7 +11,6 @@
  * csswizardry.com/2012/06/single-direction-margin-declarations
  */
 
-/* stylelint-disable selector-list-comma-newline-after */
 
 address,
 h1, h2, h3, h4, h5, h6,
@@ -21,7 +20,7 @@ figure,
 hr,
 table,
 fieldset {
-  margin-bottom: $inuit-global-spacing-unit;
+  margin-bottom: 1.5rem;
 }
 
 
@@ -30,7 +29,6 @@ fieldset {
  */
 
 dd, ol, ul {
-  margin-left: $inuit-global-spacing-unit;
+  margin-left: 1.5rem;
 }
 
-/* stylelint-enable selector-list-comma-newline-after */
